@@ -7,6 +7,12 @@ const scontoOver65=0.35;
 var submitButton= document.getElementById(`submit-button`);
 submitButton.addEventListener(`click`,
     function(){
+
+        document.getElementById('your-name').innerHTML=`Name:`;
+        document.getElementById('show-price').innerHTML=`Price:`;
+        document.getElementById('km-counted').innerHTML=`km-counted:`;
+        document.getElementById('ticket-type-2').innerHTML=`ticket-type:`;
+
         document.getElementById('show-message').innerHTML=``;
         let numKm = document.querySelector(`#km-num-input`).value;
         let ticketType = parseInt( document.querySelector(`#ticket-type`).value);
@@ -20,10 +26,14 @@ submitButton.addEventListener(`click`,
         if(numKm==0){   //controllo che sia un numero
             messageForUser.classList.remove(`visually-hidden`);
             document.getElementById('show-message').innerHTML=`non è stato inserito un valore numerico per il numero di chilometri`;
+
+            
         }
         else if(numKm<0){   //controllo che il numero di chilometri non sia negativo    
             messageForUser.classList.remove(`visually-hidden`);
             document.getElementById('show-message').innerHTML=`il numero di Km non può essere negativo`;
+        
+            
         }
         else{               
             switch(ticketType) {
@@ -31,6 +41,7 @@ submitButton.addEventListener(`click`,
                     // code block
                     messageForUser.classList.remove(`visually-hidden`);
                     document.getElementById('show-message').innerHTML=`Selezionare la tipologia di biglietto`;
+                    
                     break;
                 case 1:
                   // code block
@@ -73,5 +84,3 @@ submitButton.addEventListener(`click`,
         }
     }
 )
-
-
